@@ -7,11 +7,11 @@
 function getComputerChoice() {
     let computerChoice = Math.floor(Math.random() * 3)
     if (computerChoice === 0) {
-        return "Rock";
+        return "rock";
     } else if (computerChoice === 1) {
-        return "Paper";
+        return "paper";
     } else {
-        return "Scissors";
+        return "scissors";
     }
 }
 // Test that your function returns what you expect using console.log
@@ -25,17 +25,10 @@ function getComputerChoice() {
 // Hint: Use the prompt method to get the user's input
 
 function getHumanChoice() {
-    let humanChoice = prompt("Choose: rock, paper or scissors", "")
-    if (humanChoice.toLowerCase() === "rock") {
-        return "Rock";
-    } if (humanChoice.toLowerCase() === "paper") {
-        return "Paper";
-    } if (humanChoice.toLowerCase() === "scissors") {
-        return "Scissors";
-    } else {
-        alert("refresh the page and try again. ")
+    let humanChoice = prompt("Choose rock, paper or scissors", "") 
+        return humanChoice.toLowerCase();
     }
-}
+
 // Test what your function returns by using console.log
 // console.log(getHumanChoice());
 
@@ -61,10 +54,11 @@ let computerScore = 0
 
 function playRound(humanChoice, computerChoice) {
     console.log(computerChoice);
-    if (computerChoice ===  humanChoice) {
+    console.log(humanChoice);
+    if (computerChoice == "rock" &&  humanChoice == "rock") {
         return "It's a tie!";
     } else {
-        return "Bruh";
+        return "Other";
     }
 }
 
