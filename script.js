@@ -44,11 +44,13 @@ function getHumanChoice() {
 //         (humanChoice === "paper" && computerChoice === "rock") ||
 //         (humanChoice === "scissors" && computerChoice === "paper") 
 //     ) { 
+//         humanScore ++; 
 //         return "You win!";
-//         humanScore ++;
+// //         
 //     } else {
-//         return "You lose!";
 //         computerScore ++;
+//         return "You lose!";
+//         
 //     }
 // }
         
