@@ -84,10 +84,17 @@ function playGame() {
         }
     }
 
-    for (let i = 0; i < 5; i++) { 
-    console.log(`${playRound()}`);
-    console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
-}
+// for (let i = 0; i < 5; i++) 
+//     console.log(`${playRound()}`);
+//     console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
+// }
+
+
+const rockBtn = document.querySelector("#rockBtn"); // Selects the rock button
+rockBtn.addEventListener("click", () => { 
+    playRound("rock", getComputerChoice());
+});
+
 
     if (humanScore === computerScore) {
         console.log("The game ends in a tie!"); 
