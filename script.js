@@ -9,7 +9,8 @@ function getComputerChoice() {
     } else {
         return "scissors";
     }
-}
+    
+};
 // Test that your function returns what you expect using console.log
 // console.log(getComputerChoice());
 
@@ -68,7 +69,7 @@ function playGame() {
     function playRound(humanChoice, computerChoice) {
         // const humanChoice = getHumanChoice();
         // const computerChoice = getComputerChoice();
-        console.log(`You chose: ${humanChoice}, Computer chose: ${computerChoice}`);
+        // console.log(`You chose: ${humanChoice}, Computer chose: ${computerChoice}`);
         if (humanChoice === computerChoice) {
             return "It's a tie!";
         } else if ( 
@@ -91,10 +92,12 @@ function playGame() {
 
 
 const rockBtn = document.querySelector("#rockBtn"); // Selects the rock button
-rockBtn.addEventListener("click", () => { 
+let computerChoice = getComputerChoice();
+let result = playRound();
+rockBtn.addEventListener("click", () => {
     playRound("rock", getComputerChoice());
     const rockContent = document.createElement("p");
-    rockContent.textContent = "`You chose rock and the computer chose ${computerChoice}!`";
+    rockContent.textContent = `You chose rock and the computer chose ${result}`;
 
     container.appendChild(rockContent);
 });
@@ -103,11 +106,19 @@ rockBtn.addEventListener("click", () => {
 const paperBtn = document.querySelector("#paperBtn");
 paperBtn.addEventListener("click", () => {
     playRound("paper", getComputerChoice());
+    const paperContent = document.createElement("p");
+    paperContent.textContent = `You chose paper and the computer chose `;
+
+    container.appendChild(paperContent);
 });
 
 const scissorsBtn = document.querySelector("#scissorsBtn");
 scissorsBtn.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
+    const scissorsContent = document.createElement("p");
+    scissorsContent.textContent = `You chose scissors and the computer chose `;
+
+    container.appendChild(scissorsContent);
 });
 
 
@@ -118,7 +129,7 @@ const container = document.querySelector("#container");
 const content = document.createElement("div");
 // Adds a class to the content div
 content.classList.add("content");
-content.textContent = "Results:";
+content.textContent = `Results: Your score is ${humanScore} and the computer score is ${computerScore}`;
 
 // appends the div to container
 container.appendChild(content);
