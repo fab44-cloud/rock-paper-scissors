@@ -92,12 +92,10 @@ function playGame() {
 
 
 const rockBtn = document.querySelector("#rockBtn"); // Selects the rock button
-let computerChoice = getComputerChoice();
-let result = playRound();
 rockBtn.addEventListener("click", () => {
-    playRound("rock", getComputerChoice());
+    playRound("rock", getComputerChoice()); // Callback function that defines the event handler and will run when the rock button is clicked
     const rockContent = document.createElement("p");
-    rockContent.textContent = `You chose rock and the computer chose ${result}`;
+    rockContent.textContent = `You chose rock and the computer chose ${getComputerChoice()}`;
 
     container.appendChild(rockContent);
 });
@@ -107,7 +105,7 @@ const paperBtn = document.querySelector("#paperBtn");
 paperBtn.addEventListener("click", () => {
     playRound("paper", getComputerChoice());
     const paperContent = document.createElement("p");
-    paperContent.textContent = `You chose paper and the computer chose `;
+    paperContent.textContent = `You chose paper and the computer chose ${getComputerChoice()} `;
 
     container.appendChild(paperContent);
 });
@@ -116,23 +114,23 @@ const scissorsBtn = document.querySelector("#scissorsBtn");
 scissorsBtn.addEventListener("click", () => {
     playRound("scissors", getComputerChoice());
     const scissorsContent = document.createElement("p");
-    scissorsContent.textContent = `You chose scissors and the computer chose `;
+    scissorsContent.textContent = `You chose scissors and the computer chose ${getComputerChoice()}`;
 
     container.appendChild(scissorsContent);
 });
 
 
 // reference to the container div that exists in the html 
-const container = document.querySelector("#container");
+// const container = document.querySelector("#container");
 
 // creates a new div and stores it in the variable content
-const content = document.createElement("div");
+// const content = document.createElement("div");
 // Adds a class to the content div
-content.classList.add("content");
-content.textContent = `Results: Your score is ${humanScore} and the computer score is ${computerScore}`;
+// content.classList.add("content");
+// content.textContent = `Results: Your score is ${humanScore} and the computer score is ${computerScore}`;
 
 // appends the div to container
-container.appendChild(content);
+// container.appendChild(content);
 
 // function scoreResults() {
 //     if (humanScore === computerScore) {
