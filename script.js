@@ -88,11 +88,14 @@ function playGame() {
 
     function finalScore(humanScore, computerScore) {
         if (humanScore === winningScore) {
-            console.log("You win")
-            return "You win"
+            console.log("You win!")
+            return "You win!"
         } else if (computerScore === winningScore) {
             console.log("Computer wins!")
-            return "Computer wins!"
+            return "Computer wins!";
+        } else {
+            console.log("First to five wins!")
+            return "First to five wins!" 
         }
     }
         
@@ -106,20 +109,16 @@ rockBtn.addEventListener("click", () => {
     let computerChoice = getComputerChoice()
     playRound("rock", computerChoice); // Callback function that defines the event handler and will run when the rock button is clicked
     
-    finalScore(humanScore, computerScore)
-
     const rockContent = document.createElement("p");
     rockContent.textContent = `You chose rock and the computer chose ${computerChoice}`;
 
     let displayScore = document.createElement("p");
-    displayScore.textContent = `Your score is ${humanScore} and the computer score is ${computerScore}`
-
-    let winner = finalScore(humanScore, computerScore)
-    winner.textContent = `The winner is ${winner}`
+    displayScore.textContent = `Your score is ${humanScore} and the computer score is ${computerScore}`;
 
     container.appendChild(rockContent);
     container.appendChild(displayScore);
-    container.appendChild(winner)
+
+    finalScore(humanScore, computerScore)
 });
 
 const paperBtn = document.querySelector("#paperBtn");
@@ -135,6 +134,8 @@ paperBtn.addEventListener("click", () => {
 
     container.appendChild(paperContent);
     container.appendChild(displayScore);
+
+    finalScore(humanScore, computerScore)
 });
 
 const scissorsBtn = document.querySelector("#scissorsBtn");
@@ -150,6 +151,8 @@ scissorsBtn.addEventListener("click", () => {
 
     container.appendChild(scissorsContent);
     container.appendChild(displayScore);
+
+    finalScore(humanScore, computerScore)
 });
 
 
