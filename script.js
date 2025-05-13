@@ -93,10 +93,7 @@ function playGame() {
         } else if (computerScore === winningScore) {
             console.log("Computer wins!")
             return "Computer wins!";
-        } else {
-            console.log("First to five wins!")
-            return "First to five wins!" 
-        }
+        } 
     }
         
 // for (let i = 0; i < 5; i++) 
@@ -104,21 +101,38 @@ function playGame() {
 //     console.log(`Your score: ${humanScore}, Computer score: ${computerScore}`);
 // }
 
-const rockBtn = document.querySelector("#rockBtn"); // Selects the rock button
+const container = document.querySelector("#container");
+
+const content = document.createElement("div");
+content.classList.add("content");
+content.textContent = "This is the glorious text content!"
+
+container.appendChild(content)
+
+// selects the rock button
+const rockBtn = document.querySelector("#rockBtn"); 
 rockBtn.addEventListener("click", () => {
     let computerChoice = getComputerChoice()
-    playRound("rock", computerChoice); // Callback function that defines the event handler and will run when the rock button is clicked
+    // callback function that defines the event handler and will run when the rock button is clicked
+    playRound("rock", computerChoice); 
     
+    // creates a new paragraph referenced in the variable 'rockContent'
     const rockContent = document.createElement("p");
     rockContent.textContent = `You chose rock and the computer chose ${computerChoice}`;
+    
+    container.appendChild(rockContent);
 
     let displayScore = document.createElement("p");
     displayScore.textContent = `Your score is ${humanScore} and the computer score is ${computerScore}`;
-
-    container.appendChild(rockContent);
+    
     container.appendChild(displayScore);
 
-    finalScore(humanScore, computerScore)
+    let finalDisplay = document.createElement("p");
+    score = finalScore(humanScore, computerScore);
+    finalDisplay.textContent = score;
+    finalDisplay.style.color = 'blue'
+
+    container.appendChild(finalDisplay)
 });
 
 const paperBtn = document.querySelector("#paperBtn");
@@ -129,13 +143,19 @@ paperBtn.addEventListener("click", () => {
     const paperContent = document.createElement("p");
     paperContent.textContent = `You chose paper and the computer chose ${computerChoice}`;
 
+    container.appendChild(paperContent);
+
     let displayScore = document.createElement("p");
     displayScore.textContent = `Your score is ${humanScore} and the computer score is ${computerScore}`
 
-    container.appendChild(paperContent);
     container.appendChild(displayScore);
 
-    finalScore(humanScore, computerScore)
+    let finalDisplay = document.createElement("p");
+    score = finalScore(humanScore, computerScore);
+    finalDisplay.textContent = score;
+    finalDisplay.style.color = 'blue'
+
+    container.appendChild(finalDisplay)
 });
 
 const scissorsBtn = document.querySelector("#scissorsBtn");
@@ -145,14 +165,20 @@ scissorsBtn.addEventListener("click", () => {
 
     const scissorsContent = document.createElement("p");
     scissorsContent.textContent = `You chose scissors and the computer chose ${computerChoice}`;
+    
+    container.appendChild(scissorsContent);
 
     let displayScore = document.createElement("p")
     displayScore.textContent = `Your score is ${humanScore} and the computer score is ${computerScore}`
 
-    container.appendChild(scissorsContent);
     container.appendChild(displayScore);
 
-    finalScore(humanScore, computerScore)
+    let finalDisplay = document.createElement("p");
+    score = finalScore(humanScore, computerScore);
+    finalDisplay.textContent = score;
+    finalDisplay.style.color = 'blue'
+
+    container.appendChild(finalDisplay)
 });
 
 
