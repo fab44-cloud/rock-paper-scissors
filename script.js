@@ -79,10 +79,10 @@ function playGame() {
             (humanChoice === "scissors" && computerChoice === "paper") 
         ) { 
             humanScore += 1;
-            return "You win this round!";
+            return "You won the round!";
         } else { 
             computerScore += 1;
-            return "You lose this round!";
+            return "You lost the round!";
         }
     }
 
@@ -95,13 +95,13 @@ function playGame() {
 
     function finalScore(humanScore, computerScore) {
         if (humanScore === winningScore) {
-            console.log("You win!")
+            console.log("You won the game!")
             resetScore();
-            return "You win!"
+            return "You won the game!"
         } else if (computerScore === winningScore) {
-            console.log("Computer wins!")
+            console.log("The computer won the game!")
             resetScore();
-            return "Computer wins!";
+            return "The computer won the game!";
         } 
     }
         
@@ -154,10 +154,10 @@ paperBtn.addEventListener("click", () => {
     container.textContent = "";
 
     let computerChoice = getComputerChoice();
-    playRound("paper", computerChoice);
+    const result = playRound("paper", computerChoice);
 
     const paperContent = document.createElement("p");
-    paperContent.textContent = `You chose paper and the computer chose ${computerChoice}`;
+    paperContent.textContent = `You chose paper and the computer chose ${computerChoice}. ${result}`;
 
     container.appendChild(paperContent);
 
@@ -180,10 +180,10 @@ scissorsBtn.addEventListener("click", () => {
     container.textContent = "";
 
     let computerChoice = getComputerChoice();
-    playRound("scissors", computerChoice);
+    const result = playRound("scissors", computerChoice);
 
     const scissorsContent = document.createElement("p");
-    scissorsContent.textContent = `You chose scissors and the computer chose ${computerChoice}`;
+    scissorsContent.textContent = `You chose scissors and the computer chose ${computerChoice}. ${result}`;
     
     container.appendChild(scissorsContent);
 
