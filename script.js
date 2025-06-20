@@ -79,10 +79,10 @@ function playGame() {
             (humanChoice === "scissors" && computerChoice === "paper") 
         ) { 
             humanScore += 1;
-            return "You win!";
+            return "You win this round!";
         } else { 
             computerScore += 1;
-            return "You lose!";
+            return "You lose this round!";
         }
     }
 
@@ -103,23 +103,27 @@ function playGame() {
 
 const container = document.querySelector("#container");
 
-const content = document.createElement("div");
-content.classList.add("content");
-content.textContent = "This is the glorious text content!"
+// const content = document.createElement("div");
+// content.classList.add("content");
+// content.textContent = "This is the glorious text content!"
 
-container.appendChild(content)
+// container.appendChild(content)
 
 // selects the rock button
 const rockBtn = document.querySelector("#rockBtn"); 
 rockBtn.addEventListener("click", () => {
+    // Clear the previous content of the container
+    container.textContent = "";
+
     let computerChoice = getComputerChoice()
-    // callback function that defines the event handler and will run when the rock button is clicked
-    playRound("rock", computerChoice); 
+    // Callback function that defines the event handler and will run when the rock button is clicked
+    const result = playRound("rock", computerChoice); 
     
-    // creates a new paragraph referenced in the variable 'rockContent'
+    // Creates a new paragraph to display the current round's result
     const rockContent = document.createElement("p");
-    rockContent.textContent = `You chose rock and the computer chose ${computerChoice}`;
+    rockContent.textContent = `You chose rock and the computer chose ${computerChoice}. ${result}`;
     
+    // Append the result to the now empty container
     container.appendChild(rockContent);
 
     let displayScore = document.createElement("p");
