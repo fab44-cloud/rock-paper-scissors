@@ -86,12 +86,21 @@ function playGame() {
         }
     }
 
+    function resetScore() {
+        if (humanScore === 5 || computerScore === 5) {
+            humanScore = 0;
+            computerScore = 0;
+        }
+    }
+
     function finalScore(humanScore, computerScore) {
         if (humanScore === winningScore) {
             console.log("You win!")
+            resetScore();
             return "You win!"
         } else if (computerScore === winningScore) {
             console.log("Computer wins!")
+            resetScore();
             return "Computer wins!";
         } 
     }
@@ -169,7 +178,7 @@ const scissorsBtn = document.querySelector("#scissorsBtn");
 scissorsBtn.addEventListener("click", () => {
     // Clear the previous content of the container
     container.textContent = "";
-    
+
     let computerChoice = getComputerChoice();
     playRound("scissors", computerChoice);
 
@@ -190,7 +199,6 @@ scissorsBtn.addEventListener("click", () => {
 
     container.appendChild(finalDisplay)
 });
-
 
 // reference to the container div that exists in the html 
 // const container = document.querySelector("#container");
