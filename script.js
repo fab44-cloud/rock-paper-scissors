@@ -141,6 +141,9 @@ rockBtn.addEventListener("click", () => {
 
 const paperBtn = document.querySelector("#paperBtn");
 paperBtn.addEventListener("click", () => {
+    // Clear the previous content of the container
+    container.textContent = "";
+
     let computerChoice = getComputerChoice();
     playRound("paper", computerChoice);
 
@@ -164,6 +167,9 @@ paperBtn.addEventListener("click", () => {
 
 const scissorsBtn = document.querySelector("#scissorsBtn");
 scissorsBtn.addEventListener("click", () => {
+    // Clear the previous content of the container
+    container.textContent = "";
+    
     let computerChoice = getComputerChoice();
     playRound("scissors", computerChoice);
 
